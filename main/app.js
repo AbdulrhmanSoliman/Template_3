@@ -1,19 +1,20 @@
 let skills = document.querySelector(".our-skills");
 let progress = document.querySelectorAll(".progress span");
 
-window.onscroll = function () {
+// to animate progress of each skill percentage
+window.addEventListener("click", ()=>{
   if (window.scrollY >= skills.offsetTop - 200) {
     progress.forEach((span) => {
       span.style.width = span.dataset.set;
     });
   }
-};
-
+})
+// stats countdown
 let stats = document.querySelector(".stats");
 let allNums = document.querySelectorAll(".stats .num");
 let started = false;
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", () => { // to be modified later because not all number stop in the same rage of time
   if (window.scrollY >= stats.offsetTop - 200) {
     if (!started) {
       allNums.forEach((num) => {
