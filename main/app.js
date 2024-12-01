@@ -2,19 +2,20 @@ let skills = document.querySelector(".our-skills");
 let progress = document.querySelectorAll(".progress span");
 
 // to animate progress of each skill percentage
-window.addEventListener("onscroll", ()=>{
+window.addEventListener("scroll", () => {
   if (window.scrollY >= skills.offsetTop - 200) {
     progress.forEach((span) => {
       span.style.width = span.dataset.set;
     });
   }
-})
+});
 // stats countdown
 let stats = document.querySelector(".stats");
 let allNums = document.querySelectorAll(".stats .num");
 let started = false;
 
-window.addEventListener("scroll", () => { // to be modified later because not all number stop in the same rage of time
+window.addEventListener("scroll", () => {
+  // to be modified later because not all number stop in the same rage of time
   if (window.scrollY >= stats.offsetTop - 200) {
     if (!started) {
       allNums.forEach((num) => {
@@ -54,26 +55,26 @@ window.addEventListener("scroll", () => {
 });
 
 // countdown
-const days = document.querySelector(".days")
-const hours = document.querySelector(".hours")
-const mins = document.querySelector(".minutes")
-const secs = document.querySelector(".seconds")
+const days = document.querySelector(".days");
+const hours = document.querySelector(".hours");
+const mins = document.querySelector(".minutes");
+const secs = document.querySelector(".seconds");
 
-let endDate = new Date("May 21 2025 22:30");
-let counter = setInterval(()=>{
+let endDate = new Date("Apr 21 2025 22:30");
+let counter = setInterval(() => {
   dateNow = new Date();
   let diffDate = endDate - dateNow;
   let d = Math.floor(diffDate / 1000 / 60 / 60 / 24);
   // < calculate the remains from days, minutes and seconds >
-  let h = ((diffDate / 1000 / 60 / 60 / 24) - d) * 24
-  let m = (h - Math.floor(h)) * 60
-  let s = (m - Math.floor(m)) * 60
+  let h = (diffDate / 1000 / 60 / 60 / 24 - d) * 24;
+  let m = (h - Math.floor(h)) * 60;
+  let s = (m - Math.floor(m)) * 60;
   //set all time to all spans
-  days.innerHTML = Math.floor(d)
-  hours.innerHTML =  Math.floor(h)
-  mins.innerHTML =  Math.floor(m) < 10 ? `0${Math.floor(m)}` : Math.floor(m)
-  secs.innerHTML =  Math.floor(s) < 10 ? `0${Math.floor(s)}` : Math.floor(s)
+  days.innerHTML = Math.floor(d);
+  hours.innerHTML = Math.floor(h);
+  mins.innerHTML = Math.floor(m) < 10 ? `0${Math.floor(m)}` : Math.floor(m);
+  secs.innerHTML = Math.floor(s) < 10 ? `0${Math.floor(s)}` : Math.floor(s);
   if (diffDate == 0) {
     clearInterval(counter);
   }
-}, 1000)
+}, 1000);
