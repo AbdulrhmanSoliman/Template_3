@@ -2,7 +2,7 @@ let skills = document.querySelector(".our-skills");
 let progress = document.querySelectorAll(".progress span");
 
 // to animate progress of each skill percentage
-window.addEventListener("click", ()=>{
+window.addEventListener("onscroll", ()=>{
   if (window.scrollY >= skills.offsetTop - 200) {
     progress.forEach((span) => {
       span.style.width = span.dataset.set;
@@ -59,7 +59,7 @@ const hours = document.querySelector(".hours")
 const mins = document.querySelector(".minutes")
 const secs = document.querySelector(".seconds")
 
-let endDate = new Date("May 21 2024 22:30");
+let endDate = new Date("May 21 2025 22:30");
 let counter = setInterval(()=>{
   dateNow = new Date();
   let diffDate = endDate - dateNow;
